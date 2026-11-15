@@ -14,4 +14,4 @@ Updated 15 November 2026. Synthetic KQL lab package ready for review.
 | Portfolio | Three-tile dashboard, actual refresh recording and reproducible query package included |
 | Review | Package, source labels, claims and credential patterns checked |
 
-Publication is pending. Live Microsoft 365 tenant access, Sentinel deployment, native-source adapters and actual response execution are outside this release. They are not represented as completed work.
+Published on GitHub on 15 November 2026. Live Microsoft 365 tenant access, Sentinel deployment, native-source adapters and actual response execution are outside this release. They are not represented as completed work.
