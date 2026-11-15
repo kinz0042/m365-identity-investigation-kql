@@ -24,4 +24,4 @@ The original native SigninLogs hunt is a reference draft. The implemented querie
 
 The dashboard uses fixed replay data. Its time picker does not filter tiles that do not reference time parameters. Microsoft-account dashboard sharing is unavailable in the observed UI. Reviewers can reproduce the queries in their own free cluster from the included files.
 
-The project is stored in the private GitHub repository kinz0042/m365-identity-investigation-kql. Public publication remains an owner decision.
+The owner approved publication. The project was made public at kinz0042/m365-identity-investigation-kql on 15 November 2026.
