@@ -1,0 +1,10 @@
+{
+  "type": "synthetic",
+  "generator": "Controlled fixture created for this project",
+  "batch": "identity-v1",
+  "rows": 16,
+  "distinct_rows": 15,
+  "sha256": "1d409e5ea8ac18630032b990e1d787465f10370396dbc3f3b0c32cf866e22df3",
+  "contains_actual_tenant_logs": false,
+  "scheduled_times": "Fictional UTC times, not observed activity"
+}

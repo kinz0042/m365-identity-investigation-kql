@@ -1,0 +1,66 @@
+[
+  {
+    "Case": "suspicious",
+    "Expected": 1
+  },
+  {
+    "Case": "approved_forwarding",
+    "Expected": 1
+  },
+  {
+    "Case": "failed_signin",
+    "Expected": 0
+  },
+  {
+    "Case": "other_user",
+    "Expected": 0
+  },
+  {
+    "Case": "rule_before_signin",
+    "Expected": 0
+  },
+  {
+    "Case": "outside_window",
+    "Expected": 0
+  },
+  {
+    "Case": "missing_user",
+    "Expected": 0
+  },
+  {
+    "Case": "legitimate_device",
+    "Expected": 0
+  },
+  {
+    "Case": "boundary_30m",
+    "Expected": 1
+  },
+  {
+    "Case": "same_time",
+    "Expected": 1
+  },
+  {
+    "Case": "other_protocol",
+    "Expected": 0
+  },
+  {
+    "Case": "empty_forwarding",
+    "Expected": 0
+  },
+  {
+    "Case": "wrong_operation",
+    "Expected": 0
+  },
+  {
+    "Case": "set_rule",
+    "Expected": 1
+  },
+  {
+    "Case": "mixed_case_protocol",
+    "Expected": 1
+  },
+  {
+    "Case": "conflicting_id",
+    "Expected": 0
+  }
+]

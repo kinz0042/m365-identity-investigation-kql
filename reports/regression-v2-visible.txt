@@ -1,0 +1,82 @@
+Table 1
+Search
+2026-11-15 09:34 (UTC)
+16
+Hide empty columns
+No Rows To Show
+Case
+Expected
+Observed
+Passed
+Show expand view
+approved_forwarding
+1
+1
+true
+Show expand view
+boundary_30m
+1
+1
+true
+Show expand view
+conflicting_id
+0
+0
+true
+Show expand view
+empty_forwarding
+0
+0
+true
+Show expand view
+failed_signin
+0
+0
+true
+Show expand view
+legitimate_device
+0
+0
+true
+Show expand view
+missing_user
+0
+0
+true
+Show expand view
+mixed_case_protocol
+1
+1
+true
+Show expand view
+other_protocol
+0
+0
+true
+Show expand view
+other_user
+0
+0
+true
+Show expand view
+outside_window
+0
+0
+true
+Show expand view
+rule_before_signin
+0
+0
+true
+Show expand view
+same_time
+1
+1
+true
+Show expand view
+set_rule
+1
+1
+true
+Columns
+Query finished running. 1 datasets returned.

@@ -1,0 +1,17 @@
+{
+  "expected_cases": [
+    "approved_forwarding",
+    "suspicious"
+  ],
+  "expected_findings": 2,
+  "excluded_cases": [
+    "failed_signin",
+    "other_user",
+    "rule_before_signin",
+    "outside_window",
+    "missing_user",
+    "legitimate_device"
+  ],
+  "deduplication": "Exact repeated rows should not duplicate a finding",
+  "interpretation": "Approved forwarding intentionally matches. Detection is not an unauthorized-access verdict."
+}

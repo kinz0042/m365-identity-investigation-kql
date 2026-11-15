@@ -1,0 +1,11 @@
+// Draft hunt. Not yet executed in a Microsoft KQL engine.
+// Successful device-code authentication is legitimate in many workflows.
+// This query identifies review candidates, not confirmed phishing.
+SigninLogs
+| where TimeGenerated >= ago(7d)
+| where AuthenticationProtocol =~ "deviceCode"
+| where ResultType == "0"
+| project TimeGenerated, Id, UserId, UserPrincipalName, AppId,
+          AppDisplayName, IPAddress, AuthenticationProtocol, ResultType,
+          CorrelationId, SessionId
+| order by TimeGenerated asc

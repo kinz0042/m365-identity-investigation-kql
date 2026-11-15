@@ -1,0 +1,21 @@
+{
+  "engine": "Azure Data Explorer free cluster",
+  "evidence_type": "synthetic",
+  "table": "IdentityLabV2",
+  "batch": "identity-v2",
+  "ingested_rows": 33,
+  "cases": 16,
+  "passed": 16,
+  "failed": 0,
+  "correlation_findings": 6,
+  "data_quality_conflicts": [
+    {
+      "EventId": "conflicting_id-signin",
+      "Variants": 2
+    }
+  ],
+  "standalone_forwarding_changes": 12,
+  "method": "Actual browser-executed KQL; expected-versus-observed matrix plus aggregate counts inspected",
+  "execution_date": "2026-11-15",
+  "production_accuracy_measured": false
+}

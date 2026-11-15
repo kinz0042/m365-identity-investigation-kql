@@ -1,0 +1,33 @@
+{
+  "method": "Browser API screenshots sampled during actual dashboard refresh",
+  "frames": 24,
+  "duration_seconds": 14,
+  "audio": false,
+  "evidence_type": "synthetic logs queried in live Azure Data Explorer",
+  "frame_times_ms": [
+    57,
+    610,
+    1235,
+    2038,
+    2595,
+    3138,
+    3672,
+    4311,
+    4849,
+    5383,
+    5928,
+    6505,
+    7039,
+    7580,
+    8120,
+    8711,
+    9288,
+    9842,
+    10542,
+    11092,
+    11635,
+    12180,
+    12858,
+    13403
+  ]
+}

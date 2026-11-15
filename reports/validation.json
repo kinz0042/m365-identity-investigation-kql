@@ -1,0 +1,25 @@
+{
+  "engine": "Azure Data Explorer free cluster",
+  "database": "IdentityInvestigation",
+  "table": "IdentityLab",
+  "batch": "identity-v1",
+  "evidence_type": "synthetic",
+  "ingested_rows": 16,
+  "unique_fixture_rows": 15,
+  "observed_findings": 2,
+  "observed_cases": [
+    "approved_forwarding",
+    "suspicious"
+  ],
+  "excluded_cases": [
+    "failed_signin",
+    "other_user",
+    "rule_before_signin",
+    "outside_window",
+    "missing_user",
+    "legitimate_device"
+  ],
+  "duplicate_inflation_observed": false,
+  "validation_method": "Executed KQL through authenticated browser; inspected complete two-row result and saved browser-rendered output",
+  "production_accuracy_measured": false
+}

@@ -1,0 +1,17 @@
+Table 1
+Search
+2026-11-15 09:35 (UTC)
+1
+Hide empty columns
+No Rows To Show
+Cases
+PassedCases
+FailedCases
+Findings
+Show expand view
+16
+16
+0
+6
+Columns
+Query finished running. 1 datasets returned.

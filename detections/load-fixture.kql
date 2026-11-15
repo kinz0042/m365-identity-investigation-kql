@@ -1,0 +1,19 @@
+.set-or-append IdentityLab <|
+datatable(Batch:string, Case:string, EventId:string, TimeGenerated:datetime, Kind:string, UserId:string, AuthenticationProtocol:string, ResultType:string, Operation:string, ForwardTo:string, EvidenceType:string)[
+"identity-v1", "suspicious", "suspicious-signin", datetime(2026-11-15T09:20:00Z), "signin", "u-suspicious", "deviceCode", "0", "", "", "synthetic",
+"identity-v1", "suspicious", "suspicious-rule", datetime(2026-11-15T09:25:00Z), "mailbox_rule", "u-suspicious", "", "", "New-InboxRule", "archive@outside.example", "synthetic",
+"identity-v1", "approved_forwarding", "approved_forwarding-signin", datetime(2026-11-15T09:20:00Z), "signin", "u-approved_forwarding", "deviceCode", "0", "", "", "synthetic",
+"identity-v1", "approved_forwarding", "approved_forwarding-rule", datetime(2026-11-15T09:25:00Z), "mailbox_rule", "u-approved_forwarding", "", "", "New-InboxRule", "archive@outside.example", "synthetic",
+"identity-v1", "failed_signin", "failed_signin-signin", datetime(2026-11-15T09:20:00Z), "signin", "u-failed_signin", "deviceCode", "500121", "", "", "synthetic",
+"identity-v1", "failed_signin", "failed_signin-rule", datetime(2026-11-15T09:25:00Z), "mailbox_rule", "u-failed_signin", "", "", "New-InboxRule", "archive@outside.example", "synthetic",
+"identity-v1", "other_user", "other_user-signin", datetime(2026-11-15T09:20:00Z), "signin", "u-other_user", "deviceCode", "0", "", "", "synthetic",
+"identity-v1", "other_user", "other_user-rule", datetime(2026-11-15T09:25:00Z), "mailbox_rule", "u-different", "", "", "New-InboxRule", "archive@outside.example", "synthetic",
+"identity-v1", "rule_before_signin", "rule_before_signin-signin", datetime(2026-11-15T09:20:00Z), "signin", "u-rule_before_signin", "deviceCode", "0", "", "", "synthetic",
+"identity-v1", "rule_before_signin", "rule_before_signin-rule", datetime(2026-11-15T09:10:00Z), "mailbox_rule", "u-rule_before_signin", "", "", "New-InboxRule", "archive@outside.example", "synthetic",
+"identity-v1", "outside_window", "outside_window-signin", datetime(2026-11-15T09:20:00Z), "signin", "u-outside_window", "deviceCode", "0", "", "", "synthetic",
+"identity-v1", "outside_window", "outside_window-rule", datetime(2026-11-15T09:55:00Z), "mailbox_rule", "u-outside_window", "", "", "New-InboxRule", "archive@outside.example", "synthetic",
+"identity-v1", "missing_user", "missing_user-signin", datetime(2026-11-15T09:20:00Z), "signin", "", "deviceCode", "0", "", "", "synthetic",
+"identity-v1", "missing_user", "missing_user-rule", datetime(2026-11-15T09:25:00Z), "mailbox_rule", "", "", "", "New-InboxRule", "archive@outside.example", "synthetic",
+"identity-v1", "legitimate_device", "legitimate_device-signin", datetime(2026-11-15T09:20:00Z), "signin", "u-legitimate_device", "deviceCode", "0", "", "", "synthetic",
+"identity-v1", "suspicious", "suspicious-signin", datetime(2026-11-15T09:20:00Z), "signin", "u-suspicious", "deviceCode", "0", "", "", "synthetic"
+]

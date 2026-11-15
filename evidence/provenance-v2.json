@@ -1,0 +1,13 @@
+{
+  "evidence_type": "synthetic",
+  "batch": "identity-v2",
+  "rows": 33,
+  "unique_rows": 32,
+  "cases": 16,
+  "expected_correlations": 6,
+  "expected_conflicting_ids": [
+    "conflicting_id-signin"
+  ],
+  "sha256": "9a7a42a24e1ec07ecb15994dceae453371ffcb617a6e5a37002d9333f9ee6055",
+  "actual_tenant_logs": false
+}

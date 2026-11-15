@@ -1,0 +1,7 @@
+// Conflicting source IDs are quarantined, not silently resolved.
+IdentityLabV2
+| where Batch == "identity-v2"
+| distinct *
+| summarize Variants=count() by Batch, EventId
+| where Variants > 1
+| order by EventId asc

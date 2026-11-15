@@ -1,0 +1,41 @@
+// Custom synthetic table, not native Sentinel telemetry.
+// Quarantine conflicting IDs before correlation. Account/time agreement is a lead.
+let Raw = IdentityLabV2 | where Batch == "identity-v2" | distinct *;
+let Conflicts = Raw | summarize Variants=count() by Batch, EventId | where Variants > 1 | project Batch, EventId;
+let Events = Raw | join kind=leftanti Conflicts on Batch, EventId;
+let Signins = Events
+| where Kind == "signin" and AuthenticationProtocol =~ "deviceCode" and ResultType == "0"
+| where isnotempty(UserId) and isnotempty(EventId)
+| project Batch, Case, UserId, SigninId=EventId, SigninTime=TimeGenerated;
+let Rules = Events
+| where Kind == "mailbox_rule" and Operation in~ ("New-InboxRule", "Set-InboxRule")
+| where isnotempty(UserId) and isnotempty(EventId) and isnotempty(ForwardTo)
+| project Batch, UserId, RuleId=EventId, RuleTime=TimeGenerated, ForwardTo;
+let Findings = Signins
+| join kind=inner Rules on Batch, UserId
+| where RuleTime >= SigninTime and RuleTime <= SigninTime + 30m
+| project Case, UserId, SigninId, RuleId, SigninTime, RuleTime, ForwardTo
+| order by Case asc;
+datatable(Case:string, Expected:long)[
+"suspicious", 1,
+"approved_forwarding", 1,
+"failed_signin", 0,
+"other_user", 0,
+"rule_before_signin", 0,
+"outside_window", 0,
+"missing_user", 0,
+"legitimate_device", 0,
+"boundary_30m", 1,
+"same_time", 1,
+"other_protocol", 0,
+"empty_forwarding", 0,
+"wrong_operation", 0,
+"set_rule", 1,
+"mixed_case_protocol", 1,
+"conflicting_id", 0
+]
+| join kind=leftouter (Findings | summarize Observed=count() by Case) on Case
+| extend Observed=coalesce(Observed, long(0))
+| extend Passed=(Expected == Observed)
+| project Case, Expected, Observed, Passed
+| order by Case asc

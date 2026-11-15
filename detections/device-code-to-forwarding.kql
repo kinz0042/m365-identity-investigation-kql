@@ -1,0 +1,15 @@
+// Synthetic replay only. Same-account timing is a review lead, not token linkage.
+let Events = IdentityLab | where Batch == "identity-v1" | distinct *;
+let Signins = Events
+| where Kind == "signin" and AuthenticationProtocol =~ "deviceCode" and ResultType == "0"
+| where isnotempty(UserId)
+| project Batch, Case, UserId, SigninId=EventId, SigninTime=TimeGenerated;
+let Rules = Events
+| where Kind == "mailbox_rule" and Operation in~ ("New-InboxRule", "Set-InboxRule")
+| where isnotempty(UserId) and isnotempty(ForwardTo)
+| project Batch, UserId, RuleId=EventId, RuleTime=TimeGenerated, ForwardTo;
+Signins
+| join kind=inner Rules on Batch, UserId
+| where RuleTime >= SigninTime and RuleTime <= SigninTime + 30m
+| project Case, UserId, SigninId, RuleId, SigninTime, RuleTime, ForwardTo
+| order by Case asc

@@ -1,0 +1,8 @@
+let Raw = IdentityLabV2 | where Batch == "identity-v2" | distinct *;
+let Conflicts = Raw | summarize Variants=count() by Batch, EventId | where Variants > 1 | project Batch, EventId;
+let Events = Raw | join kind=leftanti Conflicts on Batch, EventId;
+Events
+| where Kind == "mailbox_rule" and Operation in~ ("New-InboxRule", "Set-InboxRule")
+| where isnotempty(UserId) and isnotempty(ForwardTo)
+| project Case, EventId, TimeGenerated, UserId, Operation, ForwardTo
+| order by TimeGenerated asc

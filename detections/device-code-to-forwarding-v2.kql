@@ -1,0 +1,18 @@
+// Custom synthetic table, not native Sentinel telemetry.
+// Quarantine conflicting IDs before correlation. Account/time agreement is a lead.
+let Raw = IdentityLabV2 | where Batch == "identity-v2" | distinct *;
+let Conflicts = Raw | summarize Variants=count() by Batch, EventId | where Variants > 1 | project Batch, EventId;
+let Events = Raw | join kind=leftanti Conflicts on Batch, EventId;
+let Signins = Events
+| where Kind == "signin" and AuthenticationProtocol =~ "deviceCode" and ResultType == "0"
+| where isnotempty(UserId) and isnotempty(EventId)
+| project Batch, Case, UserId, SigninId=EventId, SigninTime=TimeGenerated;
+let Rules = Events
+| where Kind == "mailbox_rule" and Operation in~ ("New-InboxRule", "Set-InboxRule")
+| where isnotempty(UserId) and isnotempty(EventId) and isnotempty(ForwardTo)
+| project Batch, UserId, RuleId=EventId, RuleTime=TimeGenerated, ForwardTo;
+Signins
+| join kind=inner Rules on Batch, UserId
+| where RuleTime >= SigninTime and RuleTime <= SigninTime + 30m
+| project Case, UserId, SigninId, RuleId, SigninTime, RuleTime, ForwardTo
+| order by Case asc
